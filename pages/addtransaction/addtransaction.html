@@ -11,8 +11,8 @@
       <br>
       <span>{{user.address}}</span>
       <br>
-      <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right : 10px; top: 8px;">{{user.debit}}</span>
-      <span class="w3-container w3-round-xlarge w3-red" style="position: absolute; right: 10px; top: 36px;">{{user.credit}}</span>
+      <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right : 10px; top: 8px;">+ {{debit}}</span>
+      <span class="w3-container w3-round-xlarge w3-red" style="position: absolute; right: 10px; top: 36px;">– {{credit}}</span>
     </li>
   </ul>
   <form action="" class="w3-container w3-text-green">
@@ -49,11 +49,11 @@
   </div>
 </div>
 <script>
-  $js("addDebitTransaction").addEventListener('click', () => {
+  function addTrans(t_type) {
     var transaction = {
       id: getQueryVariable("uid") + "-" + lastTranId,
       userid: parseInt(getQueryVariable("uid")),
-      type: -1,
+      type: t_type,
       amount: parseFloat($js("tranAmount").value),
       date: $js("tranDate").value,
       note: $js("tranNote").value,
@@ -69,5 +69,11 @@
     $lsSetJ("tranList", tranList);
     $lsSetJ("contactList", data);
     $lsSet("lastTranId", ++lastTranId);
+  }
+  $js("addDebitTransaction").addEventListener('click', () => {
+    addTrans(1);
+  });
+  $js("addCreditTransaction").addEventListener('click', () => {
+    addTrans(-1);
   });
 </script>
