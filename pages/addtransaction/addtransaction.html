@@ -1,0 +1,73 @@
+<!-- Add Transaction / Debit or Credit -->
+<div>
+  <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
+    <p>Add Debit/Credit</p>
+  </div>
+  <ul class="w3-ul w3-border w3-hoverable" style="width:100%">
+    <li style="position: relative;">
+      <span class="w3-large">{{user.name}}</span>
+      <br>
+      <span>{{user.phone}}</span>
+      <br>
+      <span>{{user.address}}</span>
+      <br>
+      <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right : 10px; top: 8px;">{{user.debit}}</span>
+      <span class="w3-container w3-round-xlarge w3-red" style="position: absolute; right: 10px; top: 36px;">{{user.credit}}</span>
+    </li>
+  </ul>
+  <form action="" class="w3-container w3-text-green">
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:30px">
+        <i class="w3-xlarge fa fa-calendar"></i>
+      </div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" id="tranDate" type="text" onfocus="(this.type='date')" placeholder="Date">
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:30px">
+        <i class="w3-xlarge fa fa-usd"></i>
+      </div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" id="tranAmount" type="number" placeholder="Amount">
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:30px">
+        <i class="w3-xlarge fa fa-pencil"></i>
+      </div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" id="tranNote" type="text" placeholder="Note">
+      </div>
+    </div>
+  </form>
+  <div class="w3-container" style="float: right">
+    <button class="w3-button w3-xlarge w3-circle w3-green w3-card-4" id="addDebitTransaction" style="height: 50px; width: 50px">+</button>
+    <button class="w3-button w3-xlarge w3-circle w3-red w3-card-4" id="addCreditTransaction" style="height: 50px; width: 50px">–</button>
+  </div>
+</div>
+<script>
+  $js("addDebitTransaction").addEventListener('click', () => {
+    var transaction = {
+      id: getQueryVariable("uid") + "-" + lastTranId,
+      userid: parseInt(getQueryVariable("uid")),
+      type: -1,
+      amount: parseFloat($js("tranAmount").value),
+      date: $js("tranDate").value,
+      note: $js("tranNote").value,
+      due: ""
+    }
+    tranList.transactions.push(transaction);
+    data.contacts.find((user) => {
+      return user.id == getQueryVariable("uid");
+    }).transactions.push(transaction.id);
+    data.contacts.find((user) => {
+      return user.id == getQueryVariable("uid");
+    }).debit += transaction.amount;
+    $lsSetJ("tranList", tranList);
+    $lsSetJ("contactList", data);
+    $lsSet("lastTranId", ++lastTranId);
+  });
+</script>

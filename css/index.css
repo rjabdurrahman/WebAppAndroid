@@ -1,0 +1,52 @@
+a{
+  text-decoration: none;
+}
+.dc_quarter{
+    display: flex;
+  }
+  .dc_quarter a{
+    flex: 1;
+  }
+  #notification {
+    background-color: gray;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    bottom: 10px;
+    overflow: hidden;
+    display: none;
+    opacity: 0.8;
+  }
+  .search_upload_Cotainer{
+    display: flex;
+  }
+  .contact_item{
+    display: flex;
+  }
+  .contact_details{
+    width: 100%;
+  }
+  .contact_sider {
+    width: 50px;
+    padding-top: 4px;
+  }
+  .contact_sider span{
+    display: block;
+    width: 40px;
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    font-weight: bolder;
+  }
+  .addTransaction{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    outline: none;
+    z-index: 9999;
+  }

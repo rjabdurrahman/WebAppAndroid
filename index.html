@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Debit Credit Plus</title>
+  <link rel="stylesheet" href="css/w3.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="cordova.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-route.min.js"></script>
+</head>
+
+<body>
+  <div class="w3-bar w3-green w3-large">
+    <span class="w3-bar-item">
+      <b>CashBook+</b>
+    </span>
+    <a href="#" class="w3-bar-item w3-button w3-right">
+      <i id="sideMenu" class="fa fa-align-justify"></i>
+    </a>
+  </div>
+  <div class="w3-sidebar w3-bar-block w3-border-left w3-animate-right" style="width:200px;right:0;display: none" id="mySidebar">
+    <a href="#" class="w3-bar-item w3-button">Settings</a>
+    <a href="#" class="w3-bar-item w3-button">About</a>
+    <a href="#" class="w3-bar-item w3-button">Contact Us</a>
+  </div>
+
+  <div class="w3-bar w3-light-grey">
+    <div class="search_upload_Cotainer">
+      <a href="#addContact" class="w3-bar-item w3-button w3-green w3-border-right">
+        <i class="fa fa-user-plus"></i>
+      </a>
+      <input type="text" id="searchContact" class="w3-input" style="background:url(http://w3schools.com/Css/searchicon.png) no-repeat right 10px center #fff;"
+        placeholder="Search..">
+
+      <a href="#backup" class="w3-bar-item w3-button w3-green w3-right">
+        <i class="fa fa-cloud-upload"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="w3-bar w3-border w3-green dc_quarter">
+    <a href="#recentTransactionArea" class="w3-bar-item w3-button w3-border-right">
+      <i class="w3-large fa fa-home"></i>
+    </a>
+    <a href="#debit" class="w3-bar-item w3-button w3-border-right">Debit</a>
+    <a href="#credit" class="w3-bar-item w3-button w3-border-right">Credit</a>
+    <a href="#allContacts" class="w3-bar-item w3-button w3-border-right" id="contactsBtn">Contacts</a>
+  </div>
+
+  <!-- Route View -->
+  <div ng-view></div>
+
+  <script src="app.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Load All Pages JS -->
+  <script src="pages/home/home.js"></script>
+  <script src="pages/addcontact/addcontact.js"></script>
+  <script src="pages/allcontacts/allcontacts.js"></script>
+  <script src="pages/addtransaction/addtransaction.js"></script>
+  <script src="pages/credit/credit.js"></script>
+  <script src="pages/debit/debit.js"></script>
+  <script src="pages/credit/credit.js"></script>
+  <script src="pages/userdetails/userdetails.js"></script>
+  <script src="pages/backup/backup.js"></script>
+  <script src="pages/addtransaction/addtransaction.js"></script>
+
+</body>
+
+</html>
