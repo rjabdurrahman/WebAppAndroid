@@ -14,7 +14,7 @@
     <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
         <p>Transactions</p>
     </div>
-    <ul class="w3-ul w3-border w3-hoverable" style="width:100%" ng-repeat="trnu in utrans()">
+    <ul class="w3-ul w3-border w3-hoverable" style="width:100%" ng-repeat="trnu in utrans() track by $index">
         <li style="position: relative;">
             <span class="w3-small">
                 <i style="color: green" class="w3-small fa fa-calendar"></i> {{trnu.date}}</span>
