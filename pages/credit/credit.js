@@ -1,6 +1,6 @@
 app.controller('CreditCntlr', function ($scope) {
     $scope.message = 'Hello from CreditCntlr';
-    $scope.trans = tranList.transactions.filter((tran) => {
+    $scope.ctrans = tranList.transactions.filter((tran) => {
         return tran.type == -1;
     });
     $scope.user = function (id) {

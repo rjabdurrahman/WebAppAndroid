@@ -1,6 +1,6 @@
 app.controller('DebitCntlr', function ($scope) {
   $scope.message = 'Hello from DebitCntlr';
-  $scope.trans = tranList.transactions.filter((tran) => {
+  $scope.dtrans = tranList.transactions.filter((tran) => {
     return tran.type == 1;
   });
   $scope.user = function (id) {

@@ -13,19 +13,19 @@ app.controller('UserDetailsCntlr', function ($scope) {
     return user.id == $scope.getQueryVar("uid");
   });
   $scope.user = user;
-  $scope.trans = function () {
+  $scope.utrans = function () {
     return tranList.transactions.filter((tran) => {
       return tran.userid == user.id;
     });
   }
   $scope.debit = 0;
-  $scope.trans().filter((tran) => {
+  $scope.utrans().filter((tran) => {
     return tran.type == 1;
   }).forEach(function(tran) {
     $scope.debit += tran.amount;
   });
   $scope.credit = 0;
-  $scope.trans().filter((tran) => {
+  $scope.utrans().filter((tran) => {
     return tran.type == -1;
   }).forEach(function(tran) {
     $scope.credit += tran.amount;

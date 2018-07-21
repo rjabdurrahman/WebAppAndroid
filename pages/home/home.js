@@ -1,12 +1,12 @@
 app.controller('HomeCntlr', function ($scope) {
   $scope.message = 'Hello from HomeController';
-  $scope.trans = tranList.transactions;
+  $scope.htrans = tranList.transactions;
   $scope.user = function (id) {
     return data.contacts.find((user) => {
       return user.id == id;
     }).name;
   }
-  $scope.trantype = function (type) {
+  $scope.trancol = function (type) {
     if (type == -1)
       return "red";
   }
@@ -15,13 +15,13 @@ app.controller('HomeCntlr', function ($scope) {
       return "–";
   }
   $scope.debit = 0;
-  $scope.trans.filter((tran) => {
+  $scope.htrans.filter((tran) => {
     return tran.type == 1;
   }).forEach((tran) => {
     $scope.debit += tran.amount;
   });
   $scope.credit = 0;
-  $scope.trans.filter((tran) => {
+  $scope.htrans.filter((tran) => {
     return tran.type == -1;
   }).forEach((tran) => {
     $scope.credit += tran.amount;
