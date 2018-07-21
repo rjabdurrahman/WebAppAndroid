@@ -21,7 +21,7 @@
         <i class="w3-xlarge fa fa-calendar"></i>
       </div>
       <div class="w3-rest">
-        <input class="w3-input w3-border" id="tranDate" type="text" onfocus="(this.type='date')" placeholder="Date">
+        <input class="w3-input w3-border" id="tranDate" type="date" placeholder="Date">
       </div>
     </div>
 
@@ -69,6 +69,7 @@
     $lsSetJ("tranList", tranList);
     $lsSetJ("contactList", data);
     $lsSet("lastTranId", ++lastTranId);
+    $js("tranAmount").value = $js("tranDate").value = $js("tranNote").value = "";
   }
   $js("addDebitTransaction").addEventListener('click', () => {
     addTrans(1);

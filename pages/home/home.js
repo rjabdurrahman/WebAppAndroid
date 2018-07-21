@@ -6,7 +6,14 @@ app.controller('HomeCntlr', function ($scope) {
       return user.id == id;
     }).name;
   }
-
+  $scope.trantype = function (type) {
+    if (type == -1)
+      return "red";
+  }
+  $scope.transym = function (type) {
+    if (type == -1)
+      return "–";
+  }
   $scope.debit = 0;
   $scope.trans.filter((tran) => {
     return tran.type == 1;
@@ -34,7 +41,7 @@ app.controller('HomeCntlr', function ($scope) {
     $scope.netcol = "red";
     $scope.netst *= -1;
   }
-  else{
+  else {
     $scope.netcol = "green";
   }
 });

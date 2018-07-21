@@ -22,7 +22,7 @@
     <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
         <p>Recent Transactions</p>
     </div>
-    <ul class="w3-ul w3-border w3-hoverable" style="width:100%" ng-repeat="trn in trans">
+    <ul class="w3-ul w3-border-bottom w3-leftbar w3-border-{{trantype(trn.type)}} w3-hoverable" style="width:100%" ng-repeat="trn in trans">
         <li style="position: relative;">
             <span class="w3-small">
                 <i style="color: green" class="w3-small fa fa-calendar"></i> {{trn.date}}</span>
@@ -30,8 +30,8 @@
             <span>
                 <i style="color: green" class="w3-medium fa fa-user"></i> {{user(trn.userid)}}</span>
             <br>
-            <span>
-                <i style="color: green" class="w3-medium fa fa-usd"></i> {{trn.amount}}</span>
+            <span style="color:{{trantype(trn.type)}}">
+                <i style="color: green" class="w3-medium fa fa-usd"></i> {{transym(trn.type)}}{{trn.amount}}</span>
             <br>
             <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right : 10px; top: 8px;">Paid</span>
         </li>
