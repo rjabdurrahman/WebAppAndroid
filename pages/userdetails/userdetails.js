@@ -30,5 +30,13 @@ app.controller('UserDetailsCntlr', function ($scope) {
   }).forEach(function(tran) {
     $scope.credit += tran.amount;
   });
+  $scope.trancol = function (type) {
+    if (type == -1)
+      return "red";
+  }
+  $scope.transym = function (type) {
+    if (type == -1)
+      return "–";
+  }
   //End
 });
