@@ -19,5 +19,22 @@ app.controller('HomeCntlr', function ($scope) {
   }).forEach((tran) => {
     $scope.credit += tran.amount;
   });
-  $scope.net = $scope.debit -$scope.credit;
+  $scope.net = $scope.debit - $scope.credit;
+  if ($scope.debit > $scope.credit) {
+    $scope.debst = 100;
+    $scope.crest = Math.round(($scope.credit / $scope.debit) * 100);
+    $scope.netst = Math.round(($scope.net / $scope.debit) * 100);
+  }
+  else {
+    $scope.crest = 100;
+    $scope.debst = Math.round(($scope.debit / $scope.credit) * 100);
+    $scope.netst = Math.round(($scope.net / $scope.credit) * 100);
+  }
+  if ($scope.netst < 0) {
+    $scope.netcol = "red";
+    $scope.netst *= -1;
+  }
+  else{
+    $scope.netcol = "green";
+  }
 });
