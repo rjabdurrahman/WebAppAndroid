@@ -4,18 +4,11 @@ app.controller('UserDetailsCntlr', function ($scope) {
   $scope.user = user;
   var utransactions = findTrans(tranList.transactions, user.id);
   $scope.utrans = utransactions;
-  // $scope.debit = 0;
-  // $scope.utrans().filter((tran) => {
-  //   return tran.type == 1;
-  // }).forEach(function(tran) {
-  //   $scope.debit += tran.amount;
-  // });
-  // $scope.credit = 0;
-  // $scope.utrans().filter((tran) => {
-  //   return tran.type == -1;
-  // }).forEach(function(tran) {
-  //   $scope.credit += tran.amount;
-  // });
+  $scope.debit = 0;
+  $scope.credit = 0;
+  utransactions.forEach(function (x) {
+    x.type == 1 ? $scope.debit += x.amount : $scope.credit += x.amount;
+  });
   $scope.trancol = function (type) {
     if (type == -1)
       return "red";

@@ -1,7 +1,6 @@
 app.controller('HomeCntlr', function ($scope, $window) {
-  $scope.debit = "400";
-  $scope.credit = '100';
-  $scope.net = "200";
+  $scope.debit = 0;
+  $scope.credit = 0;
   $scope.htrans = tranList.transactions;
   $scope.user = function (id) {
     return (findUser(data.contacts, id));
@@ -14,34 +13,25 @@ app.controller('HomeCntlr', function ($scope, $window) {
     if (type == -1)
       return "–";
   }
-  // $scope.debit = 0;
-  // $scope.htrans.filter((tran) => {
-  //   return tran.type == 1;
-  // }).forEach((tran) => {
-  //   $scope.debit += tran.amount;
-  // });
-  // $scope.credit = 0;
-  // $scope.htrans.filter((tran) => {
-  //   return tran.type == -1;
-  // }).forEach((tran) => {
-  //   $scope.credit += tran.amount;
-  // });
-  // $scope.net = $scope.debit - $scope.credit;
-  // if ($scope.debit > $scope.credit) {
-  //   $scope.debst = 100;
-  //   $scope.crest = Math.round(($scope.credit / $scope.debit) * 100);
-  //   $scope.netst = Math.round(($scope.net / $scope.debit) * 100);
-  // }
-  // else {
-  //   $scope.crest = 100;
-  //   $scope.debst = Math.round(($scope.debit / $scope.credit) * 100);
-  //   $scope.netst = Math.round(($scope.net / $scope.credit) * 100);
-  // }
-  // if ($scope.netst < 0) {
-  //   $scope.netcol = "red";
-  //   $scope.netst *= -1;
-  // }
-  // else {
-  //   $scope.netcol = "green";
-  // }
+  tranList.transactions.forEach(function (x) {
+    x.type == 1 ? $scope.debit += x.amount : $scope.credit += x.amount;
+  });
+  $scope.net = $scope.debit - $scope.credit;
+  if ($scope.debit > $scope.credit) {
+    $scope.debst = 100;
+    $scope.crest = Math.round(($scope.credit / $scope.debit) * 100);
+    $scope.netst = Math.round(($scope.net / $scope.debit) * 100);
+  }
+  else {
+    $scope.crest = 100;
+    $scope.debst = Math.round(($scope.debit / $scope.credit) * 100);
+    $scope.netst = Math.round(($scope.net / $scope.credit) * 100);
+  }
+  if ($scope.netst < 0) {
+    $scope.netcol = "red";
+    $scope.netst *= -1;
+  }
+  else {
+    $scope.netcol = "green";
+  }
 });
