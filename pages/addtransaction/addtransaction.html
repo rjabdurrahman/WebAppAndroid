@@ -60,21 +60,18 @@
       due: ""
     }
     tranList.transactions.push(transaction);
-    data.contacts.find((user) => {
-      return user.id == getQueryVariable("uid");
-    }).transactions.push(transaction.id);
-    data.contacts.find((user) => {
-      return user.id == getQueryVariable("uid");
-    }).debit += transaction.amount;
+    var user = findUser(data.contacts, getQueryVariable("uid"));
+    data.contacts[data.contacts.indexOf(user)].transactions.push(transaction.id);
+    data.contacts[data.contacts.indexOf(user)].debit += transaction.amount;;
     $lsSetJ("tranList", tranList);
     $lsSetJ("contactList", data);
     $lsSet("lastTranId", ++lastTranId);
     $js("tranAmount").value = $js("tranDate").value = $js("tranNote").value = "";
   }
-  $js("addDebitTransaction").addEventListener('click', () => {
+  $js("addDebitTransaction").addEventListener('click', function() {
     addTrans(1);
   });
-  $js("addCreditTransaction").addEventListener('click', () => {
+  $js("addCreditTransaction").addEventListener('click', function() {
     addTrans(-1);
   });
 </script>

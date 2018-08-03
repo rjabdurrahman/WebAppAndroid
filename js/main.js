@@ -27,3 +27,20 @@ function getQueryVariable(variable) {
   }
   return (false);
 };
+function findUser(arr, data) {
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].id == data){
+      return arr[i];
+      break;
+    }
+  }
+}
+function findTrans(arr, data){
+  var rdata = [];
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].userid == data){
+      rdata.push(arr[i]);
+    }
+  }
+  return rdata;
+}

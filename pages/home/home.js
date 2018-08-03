@@ -1,7 +1,6 @@
 app.controller('HomeCntlr', function ($scope, $window) {
   $scope.x = localStorage.getItem("name");
   $scope.message = 'Hello from HomeController';
-  localStorage.setItem("tranList", '{"transactions":[{"id":"100-0","userid":0,"type":1,"amount":210,"date":"","note":"efe","due":""}]}');
   $scope.htrans = JSON.parse(localStorage.getItem("tranList")).transactions;
   // $scope.user = function (id) {
   //   return data.contacts.find((user) => {

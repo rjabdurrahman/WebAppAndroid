@@ -46,3 +46,7 @@ app.config(function($routeProvider) {
 
   .otherwise({redirectTo: '/'});
 });
+
+app.run(function($rootScope) {
+  $rootScope.yourname = 'blue';
+})
