@@ -1,7 +1,8 @@
 app.controller('HomeCntlr', function ($scope, $window) {
-  $scope.x = localStorage.getItem("name");
-  $scope.message = 'Hello from HomeController';
-  $scope.htrans = JSON.parse(localStorage.getItem("tranList")).transactions;
+  $scope.debit = "400";
+  $scope.credit = '100';
+  $scope.net = "200";
+  $scope.htrans = tranList.transactions;
   // $scope.user = function (id) {
   //   return data.contacts.find((user) => {
   //     return user.id == id;
@@ -46,6 +47,3 @@ app.controller('HomeCntlr', function ($scope, $window) {
   //   $scope.netcol = "green";
   // }
 });
-function myFun(){
-  return "Working";
-}

@@ -44,3 +44,12 @@ function findTrans(arr, data){
   }
   return rdata;
 }
+function findTransByType(arr, data){
+  var rdata = [];
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].type == data){
+      rdata.push(arr[i]);
+    }
+  }
+  return rdata;
+}
