@@ -17,12 +17,15 @@ app.controller('HomeCntlr', function ($scope, $window) {
     x.type == 1 ? $scope.debit += x.amount : $scope.credit += x.amount;
   });
   $scope.net = $scope.debit - $scope.credit;
-  if ($scope.debit > $scope.credit) {
+  $scope.debst = 0;
+  $scope.crest = 0;
+  $scope.netst = 0;
+  if ($scope.debit > $scope.credit & $scope.debit != 0) {
     $scope.debst = 100;
     $scope.crest = Math.round(($scope.credit / $scope.debit) * 100);
     $scope.netst = Math.round(($scope.net / $scope.debit) * 100);
   }
-  else {
+  else if($scope.debit < $scope.credit & $scope.credit != 0) {
     $scope.crest = 100;
     $scope.debst = Math.round(($scope.debit / $scope.credit) * 100);
     $scope.netst = Math.round(($scope.net / $scope.credit) * 100);
