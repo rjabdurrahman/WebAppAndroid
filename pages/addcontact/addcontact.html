@@ -1,75 +1,76 @@
 <!-- Add Contact -->
 <div id="addContactPage">
-        <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
-            <p>Add Contact</p>
-        </div>
-        <form action="" class="w3-container w3-text-green">
-            <div class="w3-row w3-section">
-                <div class="w3-col" style="width:30px">
-                    <i class="w3-xlarge fa fa-user"></i>
-                </div>
-                <div class="w3-rest">
-                    <input class="w3-input w3-border" id="contactName" type="text" placeholder="Name">
-                </div>
-            </div>
-    
-            <div class="w3-row w3-section">
-                <div class="w3-col" style="width:30px">
-                    <i class="w3-xlarge fa fa-phone"></i>
-                </div>
-                <div class="w3-rest">
-                    <input class="w3-input w3-border" id="contactPhone" type="tel" placeholder="Phone(Optional)">
-                </div>
-            </div>
-    
-            <div class="w3-row w3-section">
-                <div class="w3-col" style="width:30px">
-                    <i class="w3-xlarge fa fa-pencil"></i>
-                </div>
-                <div class="w3-rest">
-                    <input class="w3-input w3-border" id="contactAddress" type="text" placeholder="Address(Optional)">
-                </div>
-            </div>
-            <input class="w3-check" type="checkbox" id="checkAddToPhone" checked="checked">
-            <label> Add To Phone</label>
-        </form>
-        <div class="w3-container">
-            <button class="w3-button w3-section w3-green w3-ripple w3-padding" id="importContactEl">Import</button>
-            <button class="w3-button w3-section w3-green w3-ripple w3-padding" style="float: right;" id="addContact">Add</button>
-        </div>
+    <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
+        <p>Add Contact</p>
     </div>
-    <script>
-        function contactSave(cid, cname, cphone, caddress) {
-            var user = {
-                id: cid,
-                name: cname,
-                phone: cphone,
-                address: caddress,
-                debit: 0,
-                credit: 0,
-                transactions: []
-            }
-            data.contacts.push(user);
-            $lsSetJ("contactList", data);
-            // $js('notification').textContent = "Contact Added Sucessfully!";
-            // $("#notification").show().delay(900).fadeOut();
-            // loadContacts();
+    <form action="" class="w3-container w3-text-green">
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:30px">
+                <i class="w3-xlarge fa fa-user"></i>
+            </div>
+            <div class="w3-rest">
+                <input class="w3-input w3-border" id="contactName" type="text" placeholder="Name">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:30px">
+                <i class="w3-xlarge fa fa-phone"></i>
+            </div>
+            <div class="w3-rest">
+                <input class="w3-input w3-border" id="contactPhone" type="tel" placeholder="Phone(Optional)">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:30px">
+                <i class="w3-xlarge fa fa-pencil"></i>
+            </div>
+            <div class="w3-rest">
+                <input class="w3-input w3-border" id="contactAddress" type="text" placeholder="Address(Optional)">
+            </div>
+        </div>
+        <input class="w3-check" type="checkbox" id="checkAddToPhone" checked="checked">
+        <label> Add To Phone</label>
+    </form>
+    <div class="w3-container">
+        <button class="w3-button w3-section w3-green w3-ripple w3-padding" id="importContactEl">Import</button>
+        <a class="w3-button w3-section w3-green w3-ripple w3-padding" style="float: right;" id="addContact">Add</a>
+    </div>
+</div>
+<script>
+    function contactSave(cid, cname, cphone, caddress) {
+        var user = {
+            id: cid,
+            name: cname,
+            phone: cphone,
+            address: caddress,
+            debit: 0,
+            credit: 0,
+            transactions: []
         }
-    
-        $js('addContact').addEventListener('click', function () {
-            var name = $js('contactName');
-            var phone = $js('contactPhone');
-            var address = $js('contactAddress');
-            contactSave(lastContactId, name.value, phone.value, address.value);
-            $lsSet("lastContactId", ++lastContactId);
-            //Add To Phone
-            // if($js("checkAddToPhone").checked == true) {
-            //   var myContact = navigator.contacts.create({"displayName": name});
-            //   var phoneNumbers = [];
-            //   phoneNumbers[1] = new ContactField('mobile', phone, true);
-            //   myContact.phoneNumbers = phoneNumbers;
-            //   myContact.save(onSuccess,onError);
-            // }
-            name.value = phone.value = address.value = "";
-        });
-    </script>
+        data.contacts.push(user);
+        $lsSetJ("contactList", data);
+        // $js('notification').textContent = "Contact Added Sucessfully!";
+        // $("#notification").show().delay(900).fadeOut();
+        // loadContacts();
+    }
+
+    $js('addContact').addEventListener('click', function () {
+        var name = $js('contactName');
+        var phone = $js('contactPhone');
+        var address = $js('contactAddress');
+        contactSave(lastContactId, name.value, phone.value, address.value);
+        $lsSet("lastContactId", ++lastContactId);
+        $js("addContact").setAttribute("href", "?uid=" + (lastContactId - 1) + "#userdetails");
+        //Add To Phone
+        // if($js("checkAddToPhone").checked == true) {
+        //   var myContact = navigator.contacts.create({"displayName": name});
+        //   var phoneNumbers = [];
+        //   phoneNumbers[1] = new ContactField('mobile', phone, true);
+        //   myContact.phoneNumbers = phoneNumbers;
+        //   myContact.save(onSuccess,onError);
+        // }
+        name.value = phone.value = address.value = "";
+    });
+</script>
