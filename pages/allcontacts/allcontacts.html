@@ -2,10 +2,26 @@
     <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
         <p>All Contacts</p>
     </div>
-    <ul id="contactList" class="w3-ul w3-hoverable" style="width:100%">
-        <!-- Here To Render Contacts -->
-
-
+    <ul class="w3-ul w3-hoverable" style="width:100%">
+        <li ng-repeat="cont in contacts track by $index" class="w3-border-bottom" style="position: relative;">
+            <a href="?uid={{cont.id}}#userdetails">
+                <div style="width: calc(100% - 50px);">
+                    <span class="w3-large">{{cont.name}}</span>
+                    <br>
+                    <span>{{cont.phone}}</span>
+                    <br>
+                    <span>{{cont.address}}</span>
+                </div>
+            </a>
+            <a href="?uid={{cont.id}}#addtransaction">
+                <span class="w3-container w3-round-xlarge w3-red" style="position: absolute; right: 10px; top: 40px; height : 25px;">
+                – </span>
+            </a>
+            <a href="?uid={{cont.id}}#addtransaction">
+                <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right: 10px; top: 8px; height : 25px;">
+                + </span>
+            </a>
+        </li>
     </ul>
 </div>
 <script>
