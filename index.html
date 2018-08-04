@@ -53,7 +53,15 @@
     <a href="#credit" class="w3-bar-item w3-button w3-border-right">Credit</a>
     <a href="#allContacts" class="w3-bar-item w3-button w3-border-right" id="contactsBtn">Contacts</a>
   </div>
-
+  <div id="searchContactList" class="w3-border" style="position: absolute; left: 30px; top: 82px; width: calc(100% - 40px);z-index: 999;">
+    <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
+      <p>Search Contacts</p>
+      <span id="seacrchContactHide" class="w3-light-grey w3-border" style="position: absolute; right: 0; top: 0; padding: 0px 8px 0px 8px; cursor: pointer;"><i class="fa fa-times"></i></span>
+    </div>
+    <ul id="contactList" class="w3-ul w3-white w3-hoverable" style="width:100%">
+      <!-- Here To Render Contacts -->
+    </ul>
+  </div>
   <!-- Route View -->
   <ng-view></ng-view>
 
@@ -70,7 +78,16 @@
   <script src="pages/userdetails/userdetails.js"></script>
   <script src="pages/backup/backup.js"></script>
   <script src="pages/addtransaction/addtransaction.js"></script>
-
+  <script>
+    $("#searchContactList").hide();
+    loadContacts();
+    $js("searchContact").addEventListener('click', function () {
+      $("#searchContactList").show();
+    });
+    $js("seacrchContactHide").addEventListener('click', function () {
+      $("#searchContactList").hide();
+    });
+  </script>
 </body>
 
 </html>
