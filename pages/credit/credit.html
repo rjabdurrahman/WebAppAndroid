@@ -4,13 +4,13 @@
     <ul class="w3-ul w3-border-bottom w3-leftbar w3-border-red w3-hoverable" style="width:100%" ng-repeat="trnc in ctrans track by $index">
         <li style="position: relative;">
             <span class="w3-small">
-                <i style="color: green" class="w3-small fa fa-calendar"></i> {{trnc.date}}</span>
+                <i style="color: green" class="w3-small fa fa-calendar"></i> {{dateForm(trnc.date)}}</span>
             <br>
             <span>
                 <i style="color: green" class="w3-medium fa fa-user"></i> {{user(trnc.userid).name}}</span>
             <br>
             <span>
-                <i style="color: green" class="w3-medium fa fa-usd"></i> {{trnc.amount}}</span>
+                <i style="color: green" class="w3-medium fa fa-usd"></i><span style="color: red"> –{{trnc.amount}}</span></span>
             <br>
             <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right : 10px; top: 8px;">Paid</span>
         </li>

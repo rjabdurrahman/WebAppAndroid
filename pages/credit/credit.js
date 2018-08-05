@@ -4,4 +4,5 @@ app.controller('CreditCntlr', function ($scope) {
     $scope.user = function (id) {
         return (findUser(data.contacts, id));
     };
+    $scope.dateForm = dateFormater;
 });

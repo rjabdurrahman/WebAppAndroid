@@ -1,5 +1,5 @@
 <div id="userDetails">
-    <ul class="w3-ul w3-border" style="width:100%">
+    <ul class="w3-ul w3-border-bottom" style="width:100%">
         <li style="position: relative;">
             <span class="w3-large">{{user.name}}</span>
             <br>
@@ -12,16 +12,25 @@
             <span class="w3-container w3-round-xlarge w3-light-gray w3-border" style="position: absolute; right: 10px; top: 55px;">{{debit - credit}}</span>
         </li>
     </ul>
+    <div class="w3-bar w3-white w3-border-bottom">
+        <a href="#" class="w3-bar-item w3-button w3-border-left" style="float: right;">
+            <i class="w3-large fa fa-trash"></i>
+        </a>
+        <a href="#" class="w3-bar-item w3-button w3-border-left" style="float: right;">
+            <i class="w3-large fa fa-edit"></i>
+        </a>
+    </div>
     <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
         <p>Transactions</p>
     </div>
     <ul class="w3-ul" style="width:100%" ng-repeat="trnu in utrans track by $index">
         <li class="w3-border-bottom w3-leftbar w3-hoverable w3-border-{{trancol(trnu.type)}}" style="position: relative;">
             <span class="w3-small">
-                <i style="color: green" class="w3-small fa fa-calendar"></i> {{trnu.date}}</span>
+                <i style="color: green" class="w3-small fa fa-calendar"></i> {{dateForm(trnu.date)}}</span>
             <br>
             <span>
-                <i style="color: green" class="w3-medium fa fa-usd"></i><span style="color: {{trancol(trnu.type)}}"> {{transym(trnu.type)}}{{trnu.amount}}</span> ({{trnu.note}})</span>
+                <i style="color: green" class="w3-medium fa fa-usd"></i>
+                <span style="color: {{trancol(trnu.type)}}"> {{transym(trnu.type)}}{{trnu.amount}}</span> ({{trnu.note}})</span>
             <br>
             <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right : 10px; top: 8px;">Paid</span>
         </li>

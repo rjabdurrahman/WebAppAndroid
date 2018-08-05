@@ -17,5 +17,6 @@ app.controller('UserDetailsCntlr', function ($scope) {
     if (type == -1)
       return "–";
   }
+  $scope.dateForm = dateFormater;
   //End
 });

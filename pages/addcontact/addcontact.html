@@ -37,6 +37,7 @@
         <button class="w3-button w3-section w3-green w3-ripple w3-padding" id="importContactEl">Import</button>
         <a class="w3-button w3-section w3-green w3-ripple w3-padding" style="float: right;" id="addContact">Add</a>
     </div>
+    <div id="notification"></div>
 </div>
 <script>
     function contactSave(cid, cname, cphone, caddress) {
@@ -55,10 +56,12 @@
         // $("#notification").show().delay(900).fadeOut();
         // loadContacts();
     }
-
     $js('addContact').addEventListener('click', function () {
-        if($js('contactName').value == ""){
-            console.log("Please Input a Name");
+        if ($js('contactName').value == "") {
+            $js("notification").textContent = "Please Input Name";
+            $js("notification").style.display = "block";
+            $("#notification").fadeOut(3000);
+            $js("contactName").focus();
             return;
         }
         var name = $js('contactName');
@@ -67,6 +70,9 @@
         contactSave(lastContactId, name.value, phone.value, address.value);
         $lsSet("lastContactId", ++lastContactId);
         $js("addContact").setAttribute("href", "?uid=" + (lastContactId - 1) + "#userdetails");
+        $js("notification").textContent = "Contact Added Sucessfully";
+        $js("notification").style.display = "block";
+        $("#notification").fadeOut(2000);
         //Add To Phone
         // if($js("checkAddToPhone").checked == true) {
         //   var myContact = navigator.contacts.create({"displayName": name});

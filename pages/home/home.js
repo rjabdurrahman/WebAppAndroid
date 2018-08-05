@@ -37,4 +37,5 @@ app.controller('HomeCntlr', function ($scope, $window) {
   else {
     $scope.netcol = "green";
   }
+  $scope.dateForm = dateFormater;
 });

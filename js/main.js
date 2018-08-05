@@ -12,11 +12,11 @@ function $lsSetJ(id, data) {
 }
 var lastContactId = $lsGet("lastContactId") ? $lsGet("lastContactId") : 0;
 var lastTranId = $lsGet("lastTranId") ? $lsGet("lastTranId") : 0;
-var data =  $lsGet("contactList") ? JSON.parse($lsGet("contactList")) : {
-  contacts : []
+var data = $lsGet("contactList") ? JSON.parse($lsGet("contactList")) : {
+  contacts: []
 };
-var tranList =  $lsGet("tranList") ? JSON.parse($lsGet("tranList")) : {
-  transactions : []
+var tranList = $lsGet("tranList") ? JSON.parse($lsGet("tranList")) : {
+  transactions: []
 };
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
@@ -29,29 +29,34 @@ function getQueryVariable(variable) {
 };
 function findUser(arr, data) {
   for (i = 0; i < arr.length; i++) {
-    if (arr[i].id == data){
+    if (arr[i].id == data) {
       return arr[i];
       break;
     }
   }
 }
-function findTrans(arr, data){
+function findTrans(arr, data) {
   var rdata = [];
   for (i = 0; i < arr.length; i++) {
-    if (arr[i].userid == data){
+    if (arr[i].userid == data) {
       rdata.push(arr[i]);
     }
   }
   return rdata;
 }
-function findTransByType(arr, data){
+function findTransByType(arr, data) {
   var rdata = [];
   for (i = 0; i < arr.length; i++) {
-    if (arr[i].type == data){
+    if (arr[i].type == data) {
       rdata.push(arr[i]);
     }
   }
   return rdata;
+}
+function dateFormater(d) {
+  var date = new Date(d);
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return (date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear());
 }
 // function loadContacts() {
 //   $js('contactList').innerHTML = "";
