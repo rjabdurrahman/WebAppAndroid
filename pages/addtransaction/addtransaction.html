@@ -40,7 +40,7 @@
         <i class="w3-xlarge fa fa-pencil"></i>
       </div>
       <div class="w3-rest">
-        <input class="w3-input w3-border" id="tranNote" type="text" placeholder="Note">
+        <input class="w3-input w3-border" id="tranNote" type="text" placeholder="Note(Optional)">
       </div>
     </div>
   </form>
@@ -50,9 +50,13 @@
   </div>
 </div>
 <script>
-  $js("addDebitTransaction").setAttribute("href", "?uid=" + getQueryVariable("uid") + "#userdetails");
-  $js("addCreditTransaction").setAttribute("href", "?uid=" + getQueryVariable("uid") + "#userdetails");
   function addTrans(t_type) {
+    if ($js("tranDate").value == "" || $js("tranAmount").value == "") {
+      console.log("Please Insert Data & Amount");
+      return;
+    }
+    $js("addDebitTransaction").setAttribute("href", "?uid=" + getQueryVariable("uid") + "#userdetails");
+    $js("addCreditTransaction").setAttribute("href", "?uid=" + getQueryVariable("uid") + "#userdetails");
     var transaction = {
       id: getQueryVariable("uid") + "-" + lastTranId,
       userid: parseInt(getQueryVariable("uid")),
@@ -71,10 +75,10 @@
     $lsSet("lastTranId", ++lastTranId);
     $js("tranAmount").value = $js("tranDate").value = $js("tranNote").value = "";
   }
-  $js("addDebitTransaction").addEventListener('click', function() {
+  $js("addDebitTransaction").addEventListener('click', function () {
     addTrans(1);
   });
-  $js("addCreditTransaction").addEventListener('click', function() {
+  $js("addCreditTransaction").addEventListener('click', function () {
     addTrans(-1);
   });
 </script>

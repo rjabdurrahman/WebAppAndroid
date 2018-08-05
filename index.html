@@ -37,12 +37,10 @@
       </a>
       <input type="text" id="searchContact" class="w3-input" style="background:url(http://w3schools.com/Css/searchicon.png) no-repeat right 10px center #fff;"
         placeholder="Search..">
-
       <a href="#backup" class="w3-bar-item w3-button w3-green w3-right">
         <i class="fa fa-cloud-upload"></i>
       </a>
     </div>
-
   </div>
 
   <div class="w3-bar w3-border w3-green dc_quarter">
@@ -53,15 +51,37 @@
     <a href="#credit" class="w3-bar-item w3-button w3-border-right">Credit</a>
     <a href="#allContacts" class="w3-bar-item w3-button w3-border-right" id="contactsBtn">Contacts</a>
   </div>
+  <!-- Sarch Contact List -->
   <div id="searchContactList" class="w3-border" style="position: absolute; left: 30px; top: 82px; width: calc(100% - 40px);z-index: 999;">
     <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
       <p>Search Contacts</p>
-      <span id="seacrchContactHide" class="w3-light-grey w3-border" style="position: absolute; right: 0; top: 0; padding: 0px 8px 0px 8px; cursor: pointer;"><i class="fa fa-times"></i></span>
+      <span id="seacrchContactHide" class="w3-light-grey w3-border" style="position: absolute; right: 0; top: 0; padding: 0px 8px 0px 8px; cursor: pointer;">
+        <i class="fa fa-times"></i>
+      </span>
     </div>
-    <ul id="contactList" class="w3-ul w3-white w3-hoverable" style="width:100%">
-      <!-- Here To Render Contacts -->
+    <ul ng-controller="SearchContactCtrl" class="w3-ul w3-white w3-hoverable" style="width:100%">
+      <li ng-repeat="cont in sContacts track by $index" class="w3-border-bottom" style="position: relative;">
+        <a href="?uid={{cont.id}}#userdetails">
+          <div style="width: calc(100% - 50px);">
+            <span class="w3-large">{{cont.name}}</span>
+            <br>
+            <span>{{cont.phone}}</span>
+            <br>
+            <span>{{cont.address}}</span>
+          </div>
+        </a>
+        <a href="?uid={{cont.id}}#addtransaction">
+          <span class="w3-container w3-round-xlarge w3-red" style="position: absolute; right: 10px; top: 40px; height : 25px;">
+            – </span>
+        </a>
+        <a href="?uid={{cont.id}}#addtransaction">
+          <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right: 10px; top: 8px; height : 25px;">
+            + </span>
+        </a>
+      </li>
     </ul>
   </div>
+  <!-- Sarch Contact List End-->
   <!-- Route View -->
   <ng-view></ng-view>
 
@@ -79,14 +99,16 @@
   <script src="pages/backup/backup.js"></script>
   <script src="pages/addtransaction/addtransaction.js"></script>
   <script>
+    app.controller('SearchContactCtrl', function ($scope) {
+      $scope.sContacts = data.contacts;
+    });
     $("#searchContactList").hide();
-    loadContacts();
-    $js("searchContact").addEventListener('click', function () {
-      $("#searchContactList").show();
-    });
-    $js("seacrchContactHide").addEventListener('click', function () {
-      $("#searchContactList").hide();
-    });
+    // $js("searchContact").addEventListener('click', function () {
+    //   $("#searchContactList").show();
+    // });
+    // $js("seacrchContactHide").addEventListener('click', function () {
+    //   $("#searchContactList").hide();
+    // });
   </script>
 </body>
 

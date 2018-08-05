@@ -57,6 +57,10 @@
     }
 
     $js('addContact').addEventListener('click', function () {
+        if($js('contactName').value == ""){
+            console.log("Please Input a Name");
+            return;
+        }
         var name = $js('contactName');
         var phone = $js('contactPhone');
         var address = $js('contactAddress');
