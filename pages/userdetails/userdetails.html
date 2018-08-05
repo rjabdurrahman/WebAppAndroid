@@ -21,7 +21,25 @@
         </a>
     </div>
     <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
-        <p>Transactions</p>
+        <p style="float: left;">Transactions</p>
+        <select style="float: right;margin-top: 1em;margin-bottom: 1em;" name="option">
+            <option value="" disabled selected>Year</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <select style="float: right;margin-top: 1em;margin-bottom: 1em;" name="option">
+            <option value="" disabled selected>Month</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <select style="float: right;margin-top: 1em;margin-bottom: 1em;" name="option">
+            <option value="" disabled selected>Date</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
     </div>
     <ul class="w3-ul" style="width:100%" ng-repeat="trnu in utrans track by $index">
         <li class="w3-border-bottom w3-leftbar w3-hoverable w3-border-{{trancol(trnu.type)}}" style="position: relative;">
