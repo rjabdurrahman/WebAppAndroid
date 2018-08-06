@@ -13,7 +13,7 @@
         </li>
     </ul>
     <div class="w3-bar w3-white w3-border-bottom">
-        <a href="#" class="w3-bar-item w3-button w3-border-left" style="float: right;">
+        <a href="#allContacts" id="deleteUserBtn" class="w3-bar-item w3-button w3-border-left" style="float: right;">
             <i class="w3-large fa fa-trash"></i>
         </a>
         <a href="#" class="w3-bar-item w3-button w3-border-left" style="float: right;">
@@ -54,3 +54,15 @@
         </li>
     </ul>
 </div>
+<script>
+    $js("deleteUserBtn").addEventListener('click', function () {
+        var user = findUser(data.contacts, getQueryVariable("uid"));
+        data.contacts.splice(data.contacts.indexOf(user), 1);
+        var transc = findTrans(tranList.transactions, user.id);
+        transc.forEach(function (x) {
+            tranList.transactions.splice(tranList.transactions.indexOf(x), 1);
+        });
+        $lsSetJ("contactList", data);
+        $lsSetJ("tranList", tranList);
+    });
+</script>

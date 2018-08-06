@@ -58,22 +58,3 @@ function dateFormater(d) {
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   return (date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear());
 }
-// function loadContacts() {
-//   $js('contactList').innerHTML = "";
-//   for (var item in data.contacts) {
-//       if (data.contacts.hasOwnProperty(item)) {
-//           $js('contactList').innerHTML +=
-//               '<li class="w3-border-bottom" style="position: relative;">' +
-//               '<a href="?uid=' + data.contacts[item].id + '#userdetails">' +
-//               '<div style="width: calc(100% - 50px);">' +
-//               '<span class="w3-large">' + data.contacts[item].name + '</span>' +
-//               '<br>' +
-//               '<span>' + data.contacts[item].phone + '</span>' +
-//               '<br>' +
-//               '<span>' + data.contacts[item].address + '</span>' +
-//               '</div></a>' +
-//               '<a href="?uid=' + data.contacts[item].id + '#addtransaction"><span class="w3-container w3-round-xlarge w3-red" style="position: absolute; right: 10px; top: 40px; height : 25px;"> – </span></a>' +
-//               '<a href="?uid=' + data.contacts[item].id + '#addtransaction"><span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right: 10px; top: 8px; height : 25px;"> + </span></a></li>';
-//       }
-//   }
-// }
