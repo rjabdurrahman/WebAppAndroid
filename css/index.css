@@ -1,6 +1,19 @@
 a{
   text-decoration: none;
 }
+.centerEl{
+  border: 1px solid gray;
+  width: 300px;
+  left: 0;
+  right: 0;
+  top: 125px;
+  position: absolute;
+  margin: auto;
+  z-index: 909;
+}
+.noout{
+  outline: none;
+}
 .dc_quarter{
     display: flex;
   }

@@ -52,7 +52,7 @@
     <a href="#allContacts" class="w3-bar-item w3-button w3-border-right" id="contactsBtn">Contacts</a>
   </div>
   <!-- Sarch Contact List -->
-  <div id="searchContactList" class="w3-border" style="position: absolute; left: 30px; top: 82px; width: calc(100% - 40px);z-index: 999;">
+  <div id="searchContactList" class="w3-border" style="position: absolute; left: 30px; top: 82px; width: calc(100% - 40px);z-index: 901; display: none;">
     <div class="w3-container w3-border-bottom w3-light-grey w3-border-green">
       <p>Search Contacts</p>
       <span id="seacrchContactHide" class="w3-light-grey w3-border" style="position: absolute; right: 0; top: 0; padding: 0px 8px 0px 8px; cursor: pointer;">
@@ -102,7 +102,7 @@
     app.controller('SearchContactCtrl', function ($scope) {
       $scope.sContacts = data.contacts;
     });
-    $("#searchContactList").hide();
+    // $("#searchContactList").hide();
     // $js("searchContact").addEventListener('click', function () {
     //   $("#searchContactList").show();
     // });
