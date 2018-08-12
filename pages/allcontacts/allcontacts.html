@@ -17,12 +17,16 @@
                 </div>
             </a>
             <a href="?uid={{cont.id}}#addtransaction">
-                <span class="w3-container w3-round-xlarge w3-red" style="position: absolute; right: 10px; top: 40px; height : 25px;">
+                <span class="w3-red" style="position: absolute; right: 10px; top: 40px; height : 25px; width: 30px; text-align: center;">
                     – </span>
             </a>
             <a href="?uid={{cont.id}}#addtransaction">
-                <span class="w3-container w3-round-xlarge w3-green" style="position: absolute; right: 10px; top: 8px; height : 25px;">
+                <span class="w3-green" style="position: absolute; right: 40px; top: 40px; height : 25px;width: 30px; text-align: center;">
                     + </span>
+            </a>
+            <a href="?uid={{cont.id}}#addtransaction">
+                <span class="w3-container w3-round-xlarge w3-light-gray w3-border" style="position: absolute; right: 10px; top: 8px; height : 25px;">
+                    {{cont.debit - cont.credit}} </span>
             </a>
         </li>
     </ul>

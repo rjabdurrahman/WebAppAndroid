@@ -13,6 +13,12 @@
         </li>
     </ul>
     <div class="w3-bar w3-white w3-border-bottom">
+        <a href="?uid={{user.id}}#addtransaction" class="w3-bar-item w3-button w3-border-right w3-green" style="float: left;">
+            <i class="w3-medium fa fa-plus"></i>
+        </a>
+        <a href="?uid={{user.id}}#addtransaction" class="w3-bar-item w3-button w3-border-right w3-red" style="float: left;">
+            <i class="w3-medium fa fa-minus"></i>
+        </a>
         <a id="deleteUserBtn" class="w3-bar-item w3-button w3-border-left" style="float: right;">
             <i class="w3-large fa fa-trash"></i>
         </a>
@@ -107,7 +113,7 @@
         <a id="ignorBtn" class="w3-round-xlarge w3-green w3-button noout" style="position: relative; left : 60px; padding: 6px 20px 6px 20px">Ignore</a>
     </div>
     <script>
-        function closeDelConDia(){
+        function closeDelConDia() {
             $js("deleteAlt").style.display = "none";
         }
         $js("deleteUserBtn").addEventListener('click', function () {
