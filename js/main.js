@@ -53,6 +53,14 @@ function findTransByType(arr, data) {
   }
   return rdata;
 }
+function findTransById(arr, id) {
+  var rdata = [];
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].id == id) {
+      return arr[i];
+    }
+  }
+}
 function dateFormater(d) {
   var date = new Date(d);
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];

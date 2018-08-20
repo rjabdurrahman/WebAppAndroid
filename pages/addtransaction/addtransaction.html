@@ -80,7 +80,7 @@
     tranList.transactions.push(transaction);
     var user = findUser(data.contacts, getQueryVariable("uid"));
     data.contacts[data.contacts.indexOf(user)].transactions.push(transaction.id);
-    data.contacts[data.contacts.indexOf(user)].debit += transaction.amount;;
+    t_type == 1 ? data.contacts[data.contacts.indexOf(user)].debit += transaction.amount : data.contacts[data.contacts.indexOf(user)].credit += transaction.amount;
     $lsSetJ("tranList", tranList);
     $lsSetJ("contactList", data);
     $lsSet("lastTranId", ++lastTranId);

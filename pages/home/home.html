@@ -33,12 +33,25 @@
             <span style="color:{{trancol(htrn.type)}}">
                 <i style="color: green" class="w3-medium fa fa-usd"></i> {{transym(htrn.type)}}{{htrn.amount}}</span>
             <br>
-            <span class="w3-container w3-round-xlarge w3-border" style="position: absolute; right : 10px; top: 8px;">
+            <a href="" class="w3-container w3-round-xlarge w3-border" style="position: absolute; right : 10px; top: 8px; cursor: pointer;" id="{{htrn.id}}" onclick="delTran(this.id)">
                 <i style="color: black" class="w3-medium fa fa-trash"></i>
-            </span>
+            </a>
         </li>
     </ul>
     <button class="w3-button w3-xlarge w3-circle w3-green w3-card-4 addTransaction" style="height: 50px; width: 50px;">
         <a href="#addtransaction">+</a>
     </button>
 </div>
+<script>
+    function delTran(id){
+        var tran = findTransById(tranList.transactions, id);
+        var user = findUser(data.contacts, tran.userid);
+        var userTrans = data.contacts[data.contacts.indexOf(user)].transactions;
+        userTrans.splice(userTrans.indexOf(id), 1);
+        tranList.transactions.splice(tranList.transactions.indexOf(tran), 1);
+        console.log(tranList.transactions);
+        $lsSetJ("tranList", tranList);
+        $lsSetJ("contactList", data);
+        location.reload();
+    }
+</script>
